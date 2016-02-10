@@ -12,38 +12,140 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Haunted House (working)" startnode="1" creator="Twine" creator-version="2.0.10" ifid="97195D8D-1D85-4512-A448-121E7F09A44E" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html {
-	background-color: #222222
+<tw-storydata name="Haunted House (working)" startnode="1" creator="Twine" creator-version="2.0.10" ifid="97195D8D-1D85-4512-A448-121E7F09A44E" format="Harlowe" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(https://fonts.googleapis.com/css?family=Bad+Script);
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
+
+body {
+	background-color: #101;
 }
 
 tw-passage {
-	color: silver;
-	font-family: Geneva, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 24px;
+	color: darkgreen;
+	font-family: "Shadows Into Light Two", cursive;
+	font-size: 30px;
 }
 
-tw-link {
-	color: rgb(220, 35, 80);
+tw-sidebar {
+	display: none;	
+}
+
+.enchantment-link, tw-link {
+	color: rgb(215, 15, 25);
+	outline: none;
+}
+
+.enchantment-link:hover, tw-link:hover {
+	color: rgb(215, 15, 25);
+	text-shadow: 0 2px 3px silver;	
+}
+
+.visited {
+	color: gray;	
+}
+
+.visited:hover {
+	color: beige;
+}
+
+/*
+The intro class is for before the atmosphere gets really spooky
+*/
+body.intro {
+	background-color: #222;	
+}
+
+tw-passage.intro {
+	color: lightgray;
+	font-size: 24px;
+	font-family: "Bad Script", cursive;
+}
+
+tw-passage.intro .enchantment-link, tw-passage.intro tw-link {
+	color: darkorange;
+	text-shadow: none;
+}
+
+tw-passage.intro tw-link:hover {
+	text-shadow: 0 1px 2px silver;
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
-</script><tw-passagedata pid="1" name="start" tags="start" position="807,744">
 
-It is [[1:45|time-info]] am.
 
-&quot;//&#39;&#39;Come on&#39;&#39;//, it can&#39;t be that bad,&quot; urged [[Tom|tom-info]] as you approached the house. 
-&quot;We&#39;ve been planning this for ages. Do it for me!&quot;
 
-//[[Open the gate|House1]]//</tw-passagedata>
-<tw-passagedata pid="2" name="House1" tags="" position="811,582"></tw-passagedata>
-<tw-passagedata pid="3" name="bitch" tags="" position="1110,645">Why did you even play?</tw-passagedata>
-<tw-passagedata pid="4" name="time-info" tags="" position="657,745">Damn it&#39;s late
 
-[[back|start]]</tw-passagedata>
-<tw-passagedata pid="5" name="tom-info" tags="" position="953,750">Tom is your best bud :)
+</script><tw-passagedata pid="1" name="start" tags="start" position="441,108">&lt;script&gt;
+$(&#39;body&#39;).addClass(&#39;intro&#39;)
+$(&#39;tw-passage&#39;).addClass(&#39;intro&#39;)
+&lt;/script&gt;
 
-//elaborate here//
+We walk down the dark path. We would have taken the main road, except it was 1:45am and there were (link: &quot;guards.&quot;)[guards patrolling the area, looking for those breaking curfew.]
 
-[[back|start]]</tw-passagedata>
+It was a stupid (link-reveal: &quot;dare&quot;)[ - &quot;I bet I would last longer in that old, abandoned house than you&quot; -] but a challenge was a challenge and neither of us were about to back down.
+
+We come to the clearing just outside of the gates to the mansion.  The wind picks up, the trees rustle harshly and the old [[gate|House1]] creaks on it&#39;s hinges.</tw-passagedata>
+<tw-passagedata pid="2" name="House1" tags="" position="447,250">&lt;script&gt;$(&#39;tw-passage&#39;).addClass(&#39;intro&#39;)&lt;/script&gt;
+
+We start towards the house. You are a little hesitant, but, not one to be outdone so easily, you follow along. Just as we pass through the gate, a particularly strong gust of wind hits and the screech of rusted metal banging together makes you jump.
+
+(click: &quot;rusted metal&quot;)[The gate had closed behind us.
+
+You looked scared, but you were always one to take charge if needed. You thought of everything, didn&#39;t you? You weighed your options: you could [[check the gate]] to see if it would open, or you could [[continue forward|House2]] in an attempt to act tough.]
+
+(set: $hurt_leg = 0)</tw-passagedata>
+<tw-passagedata pid="3" name="bitch" tags="" position="598,100">Why did you even play?</tw-passagedata>
+<tw-passagedata pid="4" name="check the gate" tags="" position="599,248">&lt;script&gt;$(&#39;tw-passage&#39;).addClass(&#39;intro&#39;)&lt;/script&gt;
+
+You decided to check the gate. You grabbed the metal bar and pulled. (click: &quot;pulled&quot;)[Other than the loud screech of protest from the gate, nothing happened. The gate would not budge and you realize it had locked.
+
+You could try to [[hop the fence]] - it wouldn&#39;t be to hard to do.  You could also [[go look for a key|House2]] in the house. We came here to go into the house anyway.]</tw-passagedata>
+<tw-passagedata pid="5" name="House2" tags="" position="446,407">&lt;script&gt;$(&#39;tw-passage&#39;).addClass(&#39;intro&#39;)&lt;/script&gt;
+
+(if: $hurt_leg is 1)[You have no choice but to go into the house and look for a key to the gate.](else:)[You decide it would be best to look for a key rather than climb the old rusty gate.]
+
+The moon peeks through the dark clouds, and you run toward the house -- lest a guard walk by and notice us. I walk in first and you step through the front door as light shines through the thick line of trees just outside the gate.
+
+(click: &quot;light&quot;)[After standing still and out of sight for a few minutes, you let yourself take the breath you had been holding unconsciously.  As you [[look around|House3]], noticing the run-town state of things.]</tw-passagedata>
+<tw-passagedata pid="6" name="hop the fence" tags="" position="597,408">&lt;script&gt;$(&#39;tw-passage&#39;).addClass(&#39;intro&#39;)&lt;/script&gt;
+
+You&#39;ve done this plenty of times before, so you scale the fence with ease. As you near the top of the gate, the metal bar you were standing on to support yourself gives way and you fall.
+
+(click: &quot;fall&quot;)[(append: &quot;fall.&quot;)[
+
+Some kind of gory part happens and your leg gets hurt. You can&#39;t try climbing the fence again in your current contition, so you [[head into the house|House2]].]]
+
+(set: $hurt_leg = 1)</tw-passagedata>
+<tw-passagedata pid="7" name="House3" tags="" position="446,557">&lt;script&gt;$(&#39;tw-passage&#39;).addClass(&#39;intro&#39;)&lt;/script&gt;
+
+The house (link-reveal:&quot;creeks&quot;)[, no longer used to the weight of inhabitants]. It seems unnaturally still, as though the house were frozen in time.  &quot;What //happened// here?&quot; you say, and the words hang in the air -- every move is a disturbance in this house.
+
+You look back at me and nod, then take in one last shaky breath before exploring the house.
+(set: $rl = -1)
+(click: &quot;exploring the house&quot;)[Will you start [[left|House4]] or [[right|House4]]?  &lt;img src=&quot;https://dl.dropboxusercontent.com/s/k26esdxfiu0i0yy/clock.gif&quot;&gt;
+(live:4s)[(goto:&quot;House4&quot;)(stop:)]
+
+However, you have little time to ponder that
+]</tw-passagedata>
+<tw-passagedata pid="8" name="House4" tags="" position="446,707">&lt;script&gt;$(&#39;tw-passage&#39;).addClass(&#39;intro&#39;)&lt;/script&gt;
+
+As soon as you take a step forward, one of the beams hanging down from the cieling shifts and falls in front of us. We jump back and scream, obviously not expecting the house to attack.
+
+We let out the remaining adreniline through a couple of nervous laughs, then you lead the way down the path that was chosen for you. The path leads into the darkness and you strain to |s&gt;[see].
+
+(click: ?s)[You pull out your flashlight as you step into a new room of the house. It appears to be a kitchen, though one could hardly call it that now. A rat scurries by as you shine the light on the room and a |g&gt;[glimmer] catches your eye.]
+
+(click: ?g)[You see a set of [[keys|House5]] hanging on the far side of the kitchen. One of those must be the key to the gate.]</tw-passagedata>
+<tw-passagedata pid="9" name="House5" tags="" position="449,856">You take a step forwards and |snap&gt;[&lt;span style=&#39;font-size:48px;&#39;&gt;*snap*&lt;/span&gt;]
+(click: ?snap)[(append: ?snap)[! The floor gives out and you |fall&gt;[fall.]] {
+&lt;script&gt;$(&#39;body&#39;).removeClass()&lt;/script&gt;
+(if: $hurt_leg is 1)[(click: ?fall)[(append: ?fall)[ I hope the leg will hold up.]]]
+}
+&quot;Are you alright?&quot; I call out. I step towards the hole in the floor, but the distinctive creaking has me step back again. 
+
+It looks like you fell into the basement. It seemed too dangerous to walk around the hole in the floor, but there was a door on the other side, near the keys.
+
+[[ThisIsALink]]
+]</tw-passagedata>
+<tw-passagedata pid="10" name="ThisIsALink" tags="" position="696,907">Double-click this passage to edit it.</tw-passagedata>
 </tw-storydata>
 
 
